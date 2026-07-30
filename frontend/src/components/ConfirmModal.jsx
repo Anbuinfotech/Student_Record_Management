@@ -1,0 +1,3 @@
+import { motion } from 'framer-motion'
+import { FaExclamationTriangle, FaTimes } from 'react-icons/fa'
+export default function ConfirmModal({ title, message, confirmText = 'Delete', onClose, onConfirm, busy }) { return <div className="modal-backdrop" role="presentation"><motion.div className="confirm-modal" initial={{ opacity:0, scale:.94 }} animate={{ opacity:1, scale:1 }}><button className="modal-close" onClick={onClose}><FaTimes /></button><span className="warning-icon"><FaExclamationTriangle /></span><h2>{title}</h2><p>{message}</p><div><button className="btn btn-quiet" onClick={onClose}>Cancel</button><button className="btn btn-danger" onClick={onConfirm} disabled={busy}>{busy ? 'Deleting…' : confirmText}</button></div></motion.div></div> }

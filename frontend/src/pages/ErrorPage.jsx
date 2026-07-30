@@ -1,0 +1,3 @@
+import { Link } from 'react-router-dom'
+import { FaArrowLeft, FaExclamationCircle } from 'react-icons/fa'
+export default function ErrorPage({ code = '404' }) { const text = code === '401' ? ['Access restricted', 'You need to sign in before viewing this page.'] : code === '500' ? ['Something went wrong', 'We could not complete that request.'] : ['Page not found', 'The page you are looking for may have moved or no longer exists.']; return <main className="error-page"><FaExclamationCircle /><p>{code}</p><h1>{text[0]}</h1><span>{text[1]}</span><Link className="btn btn-primary" to={code === '401' ? '/login' : '/'}><FaArrowLeft /> {code === '401' ? 'Go to login' : 'Back to home'}</Link></main> }
