@@ -28,7 +28,8 @@ export default function RegisterPage() {
       })
 
       if (!response.ok) {
-        throw new Error('Registration failed')
+        const error = await response.json().catch(() => null)
+        throw new Error(error?.message || 'Unable to register. Please try again.')
       }
 
       toast.success('Registration successful! Please login.')
